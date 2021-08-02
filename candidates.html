@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        ::-webkit-scrollbar {
+        width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+        background: #ffffff;
+        border-radius: 10px;
+        border: 1px solid rgba(212, 206, 206,0.5);
+        }
+        ::-webkit-scrollbar-thumb {
+        background: rgba(212, 206, 206,0.5);
+        border-radius: 10px;
+        border: 1px solid rgba(212, 206, 206,0.5);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+        background: #c4c4cc
+        }
+        ::-webkit-scrollbar-thumb:active {
+        background: #aeaeb5
+        }
+        .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+        }
+        .header .title{
+            color: blueviolet;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0px;
+        }
+        .header .btn-add{
+            background: blueviolet;
+            color: #fff;
+            font-size: 0.8em;
+        }
+        .msg-alert{
+            display: none;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        table tr{
+
+            border-bottom: #999;
+        }
+        table tr th,
+        table tr td{
+            font-size: 0.9em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        table tr td:hover{
+            color: rgb(245, 11, 81);
+            cursor: pointer;
+        }
+        
+        table tr td .btn-light{
+            font-size: 0.8em;
+            color: blueviolet;
+        }
+
+        .page-link.active{
+            background: indigo;
+            color: #fff;
+        }
+        @media (max-width:996px){
+            .header{flex-direction: column; }
+            .header .title{margin-bottom: 10px;}
+            .header .btn-add{font-size: 0.6em;}
+        }
+    </style>
+    <div class="container-fluid">
+        <div class="row m-0 p-0">
+                <!--  -->
+                <div>
+                    <div class="col-12 bg-white ">
+                            <!-- header -->
+                            <div class="header p-3 my-2  bg-light">
+                                <p class="text-center  fw-bold title">Candidature Développeur  (réponses)</p> 
+                                <!-- btnadd candidate -->
+                                <a href="test.html" class="btn btn-add sm"><i class="fa fa-plus me-2" aria-hidden="true"></i> Ajouter un candidat</a>
+                            </div>
+
+                            <!-- delete msg -->
+                            <div class="alert msg-alert p-2">
+                                <!-- alert delete muessage  -->
+                            </div>
+
+                            <!-- table candidates -->
+                            <div class="table bg-white w-100 mt-4">
+                                <!-- set table  -->
+                            </div>
+                    </div>
+               </div>
+                <!--  -->
+            
+        </div>
+    </div>
+
+
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script>
+         
+ // get all candidates 
+            load_table(1);
+            function load_table(page){
+                let action = "fetch_condidates";
+            
+                $.ajax({
+                    url:'action.php',
+                    method:"POST",
+                    data:{action:action,page:page},
+                    success:function(data){
+                        $('.table').html(data);
+
+                    }
+                })
+            }//end load table
+
+// get condidate by page number
+            var allPage = document.querySelectorAll('.page-item');
+
+            allPage.forEach((el)=>{
+                 el.addEventListener('click' , ()=>{
+                    //  get page number 
+                       let page = el.getAttribute('data-page');
+                       load_table(page);
+                       console.log('hello');
+
+                       for(x = 0 ; x < allPage.length ; x++){
+                        //    allPage[x].parentElement.classList.remove('active');
+                       }
+
+                       el.classList.parentElement.add('active');
+                 })
+            })
+
+// delete condidate by id
+            const MsgAlert = document.querySelector('.msg-alert');
+
+            function deleteCandidate($id){
+                    if(window.confirm('do you want to delete this Candidate ?')){
+                        
+                        let id = $id;
+
+                        $.ajax({
+                        url:'action.php',
+                        method:'POST',
+                        data:{ id:id, action:'delete'},
+                        dataType:"JSON",
+                        success:function(data){
+                            // if delete this condidate reload load_table function for get new data 
+                            load_table();
+
+                            // check type of msg for choose type of alert 
+                            if(data.type == 'success'){
+                               MsgAlert.classList.add('alert-success');
+                                //  set alert message value 
+                               MsgAlert.innerHTML = '<i class="fa fa-check me-3" aria-hidden="true"></i>' + data.msg;
+                            }else{
+                               MsgAlert.classList.add('alert-danger');
+                                //  set alert message value 
+                               MsgAlert.innerHTML = '<i class="fa fa-exclamation-circle me-3" aria-hidden="true"></i>' + data.msg;
+                            }
+                            //  show alert message
+                              
+                              MsgAlert.style.display = 'block';
+                            //  after 2 second hide alert message
+                              setTimeout(()=>{
+                                MsgAlert.style.display = 'none';
+                              },2000);
+                        }
+                        });
+                    }else{
+                        return false;
+                    }//end condition of delete candidte
+            }//end delete function
+
+
+
+            
+         
+       
+    </script>
+</body>
+</html>
+
+

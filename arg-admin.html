@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reponse</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/main.css">
+    
+   
+</head>
+<body>
+
+    
+<div class="container-fluid">
+    <div class="row m-0 p-0">
+        <div class="col-12 col-lg-6 col-md-8 col-sm-10 mx-auto py-3 px-0 p-r">
+            <div class="header bg-white px-3 pt-3">
+                <!--  -->
+                   <div class="rs_view">
+                       <div class="rs_number"><span class="nm-of-rp d-inline"></span> Responses</div>
+                       <div class="rs_control">
+                           <!-- tabel candidates  as an excel-->
+                          <a href="candidates.html"><i class="fa fa-file-excel-o" aria-hidden="true"></i></a>
+                           <!-- btn hamburger  -->
+                          <div class="option">
+                                <div class="hamburger-btn">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                          </div>
+                       </div>
+                   </div>
+                   <!--  -->
+                   <div class="option_accept">
+                        <label class="form-label" for="flexSwitchCheckChecked">Réponses acceptées</label>
+                        <input class="form-input" type="checkbox" id="toggle-accept" checked> 
+                   </div>
+                   <!-- show delete message -->
+                   <div class="alert msg-alert p-2">
+                         <!-- alert delete muessage  -->
+                   </div>
+                   <!-- toggle option between resume & individuel -->
+                   <ul class="control_tabs">
+                          <li class="tab-item">
+                            <span class="tab-resume tab-content">Resume</span>
+                          </li>
+                          <li class="tab-item">
+                            <span class="tab-ind tab-content">Individuel</span>
+                          </li>
+                          <li id="indicator"></li>
+                   </ul>
+
+            </div>
+
+
+            <!--!================= start resume section ==================-->
+            <section class="resume section-tab">
+                 
+               
+                <!-- charts of Cnss -->
+                <div class="col">
+                    <div class="header_section">
+                         <span class="qustion-title">Affilié à la CNSS ?</span>
+                         <span class="question-reponse"><span class="nm-of-rp d-inline "></span> reponse</span>
+                    </div>
+                    <div class="reponse_contain">
+                        <div id="cnss-area" style="overflow: hidden;"></div>
+                    </div>
+                </div>
+
+                <!-- charts of lang -->
+                <div class="col">
+                    <div class="header_section">
+                         <span class="qustion-title">Quels sont les langages que vous maitrisez ?</span>
+                         <span class="question-reponse"><span class="nm-of-rp d-inline"></span> reponse</span>
+                    </div>
+                    <div class="reponse_contain">
+                        <div id="lang-area" style="overflow: auto;min-width: 100%;"></div>
+                    </div>
+                </div>
+                <!-- experience -->
+                <div class="col">
+                    <div class="header_section">
+                         <span class="qustion-title">Considérez-vous votre profil comme :</span>
+                         <span class="question-reponse"><span class="nm-of-rp d-inline"></span> reponse</span>
+                    </div>
+                    <div class="reponse_contain">
+                        <div id="profile-area" style="overflow: hidden;width: 100%;"></div>
+                    </div>
+                </div>
+                
+                 <!-- type of dev -->
+               <div class="col">
+                    <div class="header_section">
+                         <span class="qustion-title">Considérez-vous votre profil comme :</span>
+                         <span class="question-reponse"><span class="nm-of-rp d-inline"></span> reponse</span>
+                    </div>
+                    <div class="reponse_contain">
+                        <div id="dev-tp"  style="overflow: hidden;width: 100%;"></div>
+                    </div>
+                </div> 
+                <!-- number of prj  -->
+                <div class="col">
+                    <div class="header_section">
+                         <span class="qustion-title">Sur combien de projet avez vous travaillé ? (hors projets académiques)</span>
+                         <span class="question-reponse"><span class="nm-of-rp d-inline"></span> reponse</span>
+                    </div>
+                    <div class="reponse_contain">
+                        <div id="pr_number"  style="overflow: hidden;width: 100%;"></div>
+                    </div>
+                </div> 
+                <!-- salary  -->
+                <div class="col">
+                    <div class="header_section">
+                         <span class="qustion-title">Vos prétentions salariales (NET) DHS</span>
+                         <span class="question-reponse"><span class="nm-of-rp d-inline"></span> reponse</span>
+                    </div>
+                    <div class="reponse_contain">
+                        <div id="salary"  style="overflow: hidden;width: 100%;"></div>
+                    </div>
+                </div> 
+            
+            </section>
+            <!--!================= end resume section ==================-->
+
+
+            <!--!================= start individuel section ======================-->
+            <div class="individuel section-tab">
+                <!--  -->
+                <div class="navigation_Containt">
+                    <div class="reponse-control">
+                        <span class="prevControl btn-control"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+                        <div>
+                            <input type="number" value="1" class="index_of_rep"> 
+                             sur 
+                            <span class="nm-of-rp d-inline"></span>
+                        </div>
+                        <span class="nextControl btn-control"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+                    </div>
+
+                    <div class="control_Group">
+                        <span class="printpres" onclick="window.print()"><i class="fa fa-print" aria-hidden="true"></i></span>
+                        <span class="deleteRes" ><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                    </div>
+                </div>
+                <!--  -->
+                <form  class="dev_formulaire">
+                    <div class="form-group">
+                        <label for="full-name" class="form-label">Nom Complet<span>*</span> </label>
+                        
+                            <div class="maker">
+                                <input type="text" name="full-name" placeholder="votre reponse" id="full-name" class="form_control" required>
+                            </div>
+                            <span class="Form_error" > <i class="fa fa-exclamation me-3" aria-hidden="true"></i> Cette question est obligatoire.</span>
+                    </div>
+                    <!--  -->
+                    <div class="form-group">
+                        <label for="age" class="form-label">Age<span>*</span></label>
+                            <div class="maker">
+                                <input type="number"  name="age" placeholder="votre reponse" id="age" class="form_control" required>
+                            </div>
+                            <span class="Form_error" > <i class="fa fa-exclamation me-3" aria-hidden="true"></i> Cette question est obligatoire.</span>
+                    </div>
+                    <!--  -->
+                    <div class="form-group">
+                        <label for="ville" class="form-label">Ville<span>*</span></label>
+                            <div class="maker">
+                                <input type="text"  name="ville" placeholder="votre reponse" id="ville" class="form_control" required>
+                            </div>
+                            <span class="Form_error" > <i class="fa fa-exclamation me-3" aria-hidden="true"></i> Cette question est obligatoire.</span> 
+                    </div>
+                    <!--  -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email<span>*</span></label>
+                            <div class="maker">
+                                <input type="email"  name="email" placeholder="votre reponse" id="email" class="form_control" required >
+                            </div>
+                            <span class="Form_error" > <i class="fa fa-exclamation me-3" aria-hidden="true"></i> Cette question est obligatoire.</span>
+                    </div>
+                    <!--  -->
+                    <div class="form-group">
+                            <label for="telephone" class="form-label">Telephone<span>*</span></label>
+                            <div class="maker">
+                                <input type="text"  name="telephone" placeholder="votre reponse" id="telephone" class="form_control" email>
+                            </div>
+                            <span class="Form_error" >Cette question est obligatoire.</span>
+                    </div>
+                    <!--  -->
+                    <div class="form-group">
+                        <label class="form-label">Affilié à la CNSS ?<span>*</span></label>
+                        <div class="select">
+                            <label for="cnss-oui"><input type="radio"  name="CNSS" class="cnss" value="oui"  required> Oui</label>
+                            <label for="cnss-non"><input type="radio"  name="CNSS" class="cnss" value="non"  > Non</label>
+                        </div>
+                        <span class="Form_error" > <i class="fa fa-exclamation me-3" aria-hidden="true"></i> Cette question est obligatoire.</span>
+                    </div>
+                    <!--  -->
+                    <div class="form-group">
+                        <label class="form-label mb-4">Quels sont les langages que vous maitrisez ?<span>*</span></label>
+                        <table > 
+                            <tr>
+                                <th></th>
+                                <th><div>Débutant (1/5)</div></th>
+                                <th><div>Junior (2/5)</div></th>
+                                <th><div>Senior (3/5)</div></th>
+                                <th><div>Expert (5/5)</div></th>
+    
+                            </tr>
+                            <tr>
+                                <td>PHP</td>
+                                <td><input type="radio" value="1" name="PHP" class="php"  required></td>
+                                <td><input type="radio" value="2" name="PHP" class="php" ></td>
+                                <td><input type="radio" value="3" name="PHP" class="php" ></td>
+                                <td><input type="radio" value="5" name="PHP" class="php" ></td>
+                            </tr>
+                            <tr>
+                                <td>Html5</td>
+                                <td><input type="radio" value="1" name="html5" class="html5" required></td>
+                                <td><input type="radio" value="2" name="html5" class="html5" ></td>
+                                <td><input type="radio" value="3" name="html5" class="html5" ></td>
+                                <td><input type="radio" value="5" name="html5" class="html5" ></td>
+                            </tr>
+                            <tr>
+                                <td>Css</td>
+                                <td><input type="radio" value="1" name="css" class="css" required></td>
+                                <td><input type="radio" value="2" name="css" class="css" ></td>
+                                <td><input type="radio" value="3" name="css" class="css" ></td>
+                                <td><input type="radio" value="5" name="css" class="css" ></td>
+                            </tr>
+                            <tr>
+                                <td>JAVAScript</td>
+                                <td><input type="radio" value="1" name="js" class="js" required></td>
+                                <td><input type="radio" value="2" name="js" class="js" ></td>
+                                <td><input type="radio" value="3" name="js" class="js" ></td>
+                                <td><input type="radio" value="5" name="js" class="js" ></td>
+                            </tr>
+                            <tr>
+                                <td>Angular</td>
+                                <td><input type="radio" value="1" name="angular" class="angular" required></td>
+                                <td><input type="radio" value="2" name="angular" class="angular" ></td>
+                                <td><input type="radio" value="3" name="angular" class="angular" ></td>
+                                <td><input type="radio" value="5" name="angular" class="angular" ></td>
+                            </tr>
+                            <tr>
+                                <td>Bootstrap4</td>
+                                <td><input type="radio" value="1" name="bootstrap4" class="bootstrap4" required></td>
+                                <td><input type="radio" value="2" name="bootstrap4" class="bootstrap4" ></td>
+                                <td><input type="radio" value="3" name="bootstrap4" class="bootstrap4" ></td>
+                                <td><input type="radio" value="5" name="bootstrap4" class="bootstrap4" ></td>
+                            </tr>
+                            <tr>
+                                <td>UML</td>
+                                <td><input type="radio" value="1" name="uml" class="uml" required></td>
+                                <td><input type="radio" value="2" name="uml" class="uml" ></td>
+                                <td><input type="radio" value="3" name="uml" class="uml" ></td>
+                                <td><input type="radio" value="5" name="uml" class="uml" ></td>
+                            </tr>
+                            <tr>
+                                <td>Jquery</td>
+                                <td><input type="radio" value="1" name="jquery" class="jquery"  required></td>
+                                <td><input type="radio" value="2" name="jquery" class="jquery"  ></td>
+                                <td><input type="radio" value="3" name="jquery" class="jquery"  ></td>
+                                <td><input type="radio" value="5" name="jquery" class="jquery"  ></td>
+                            </tr>
+                            <tr>
+                                <td>ajax</td>
+                                <td><input type="radio" value="1" name="ajax" class="ajax" required></td>
+                                <td><input type="radio" value="2" name="ajax" class="ajax" ></td>
+                                <td><input type="radio" value="3" name="ajax" class="ajax" ></td>
+                                <td><input type="radio" value="5" name="ajax" class="ajax" ></td>
+                            </tr>
+                            <tr>
+                                <td>typescript</td>
+                                <td><input type="radio" value="1" name="typscript" class="typescript" required></td>
+                                <td><input type="radio" value="2" name="typscript" class="typescript" ></td>
+                                <td><input type="radio" value="3" name="typscript" class="typescript" ></td>
+                                <td><input type="radio" value="5" name="typscript" class="typescript" ></td>
+                            </tr>
+                            <tr>
+                                <td>react</td>
+                                <td><input type="radio" value="1" name="react" class="react" required></td>
+                                <td><input type="radio" value="2" name="react" class="react" ></td>
+                                <td><input type="radio" value="3" name="react" class="react" ></td>
+                                <td><input type="radio" value="5" name="react" class="react" ></td>
+                            </tr>
+                            <tr>
+                                <td>symphony</td>
+                                <td><input type="radio" value="1" name="symphony" class="symphony" required></td>
+                                <td><input type="radio" value="2" name="symphony" class="symphony" ></td>
+                                <td><input type="radio" value="3" name="symphony" class="symphony" ></td>
+                                <td><input type="radio" value="5" name="symphony" class="symphony" ></td>
+                            </tr>
+                            <tr>
+                                <td>mysql</td>
+                                <td><input type="radio" value="1" name="mysql" class="mysql" required></td>
+                                <td><input type="radio" value="2" name="mysql" class="mysql" ></td>
+                                <td><input type="radio" value="3" name="mysql" class="mysql" ></td>
+                                <td><input type="radio" value="5" name="mysql" class="mysql" ></td>
+                            </tr>
+                            <tr>
+                                <td>nodejs</td>
+                                <td><input type="radio" value="1" name="nodejs" class="nodejs" required></td>
+                                <td><input type="radio" value="2" name="nodejs" class="nodejs" ></td>
+                                <td><input type="radio" value="3" name="nodejs" class="nodejs" ></td>
+                                <td><input type="radio" value="5" name="nodejs" class="nodejs" ></td>
+                            </tr>
+                            <tr>
+                                <td>expressjs</td>
+                                <td><input type="radio" value="1" name="expressjs" class="expressjs"  required></td>
+                                <td><input type="radio" value="2" name="expressjs" class="expressjs"  ></td>
+                                <td><input type="radio" value="3" name="expressjs" class="expressjs"  ></td>
+                                <td><input type="radio" value="5" name="expressjs" class="expressjs"  ></td>
+                            </tr>
+    
+    
+                        </table> 
+                    </div> 
+                    <!--  -->
+                    <div class="form-group">
+                        <label class="form-label mb-4">Considérez-vous votre profil comme : <span>*</span></label>
+                        <div class="select">
+                            <label ><input type="radio" name="experience" class="exp" value="debutant" required> Débutant (moins d'un an)</label>
+                            <label ><input type="radio" name="experience" class="exp" value="Junior"> Junior (plus de 3 ans)</label>
+                            <label ><input type="radio" name="experience" class="exp" value="Senior"> Senior (Plus de 5 ans)</label>
+                            <label ><input type="radio" name="experience" class="exp" value="Expert"> Expert (plus de 8 ans)</label>
+                        </div>
+                        <span class="Form_error" > <i class="fa fa-exclamation me-3" aria-hidden="true"></i> Cette question est obligatoire.</span>
+                    </div>
+                    <!--  -->
+                    <div class="form-group">
+    
+                        <label class="form-label mb-4">Considérez-vous votre profil comme : <span>*</span></label>
+                        <div class="select">
+                            <label ><input type="radio" name="dev_t" class="dev_t" value="front end" required> Front End</label>
+                            <label ><input type="radio" name="dev_t" class="dev_t" value="back end">    Back End</label>
+                            <label ><input type="radio" name="dev_t" class="dev_t" value="full stack">    Full Stack</label>
+                        </div>
+                        <span class="Form_error" > <i class="fa fa-exclamation me-3" aria-hidden="true"></i> Cette question est obligatoire.</span> 
+                    </div>
+                    <!--  -->
+                    <div class="form-group">
+                        
+                        <label class="form-label mb-4">Sur combien de projet avez vous travaillé ? (hors projets académiques) <span>*</span></label>
+                        <div class="select">
+                        <label ><input type="radio"  name="pr_number" class="pr_number" value="moins de 3" required> moins de 3</label>
+                        <label ><input type="radio"  name="pr_number" class="pr_number" value="Plus de 3"> Plus de 3</label>
+                        <label ><input type="radio"  name="pr_number" class="pr_number" value="Plus de 6"> Plus de 6</label>
+                        
+                        </div>
+                        <span class="Form_error" > <i class="fa fa-exclamation me-3" aria-hidden="true"></i> Cette question est obligatoire.</span>
+                    </div>
+                        <!--  -->
+                        <div class="form-group">
+                        <label for="qu" class="form-label">Qu'est ce qui vous poussera à nous quitter ? <span>*</span></label>
+                            <div class="maker">
+                                    <input type="text" name="question"  placeholder="votre reponse" id="qu" class="form_control qu_">
+                            </div>
+                            <span class="Form_error" > <i class="fa fa-exclamation me-3" aria-hidden="true"></i> Cette question est obligatoire.</span>
+                    </div>
+                </form>
+            </div>
+            <!--!================= end individuel section ==================-->
+            
+                    
+            <!--! ========loading animation ======== -->
+            <section class="animation">
+                <div class="inner-animation">
+                    <span style="--i:0"></span>
+                    <span style="--i:1"></span>
+                    <span style="--i:2"></span>
+                    <span style="--i:3"></span>
+                    <span style="--i:4"></span>
+                    <span style="--i:5"></span>
+                </div>
+            </section>
+
+            
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script src="./js/jquery-3.6.0.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>  
+<script src="./js/main.js"></script>
+ <!-- charts  -->
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ <script src="./js/charts.js"></script>
+</body>
+</html>

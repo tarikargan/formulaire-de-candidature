@@ -1,0 +1,401 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100&family=Kelly+Slab&family=Teko:wght@300;400;500;700&display=swap");
+h1, h2, h3, h4, h5, input, button, span, select, p, ul, ol, a {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+  background: none;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Roboto,Arial,sans-serif;
+}
+
+.container-fluid {
+  background: #240A3A;
+  min-height: 100vh;
+}
+
+.p-r {
+  position: relative;
+}
+
+.header {
+  width: 100%;
+  border-radius: 8px;
+  /*end controls tabs*/
+}
+
+.header .rs_view {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 60px;
+}
+
+.header .rs_view .rs_number {
+  font-family: 'Google Sans',Roboto,Arial,sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: #202124;
+  line-height: 60px;
+}
+
+.header .rs_view .rs_control {
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .rs_view .rs_control a, .header .rs_view .rs_control .option {
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  line-height: 48px;
+}
+
+.header .rs_view .rs_control a {
+  color: green;
+}
+
+.header .rs_view .rs_control .option .hamburger-btn {
+  width: 48px;
+  height: 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 1px solid black;
+}
+
+.header .rs_view .rs_control .option .hamburger-btn span {
+  width: 6px;
+  height: 6px;
+  display: block;
+  border-radius: 3px;
+  background: #5e09a3;
+  margin: 1px 0px;
+}
+
+.header .option_accept {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+  border-radius: 8px;
+}
+
+.header .option_accept .form-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #70757a;
+  margin: 0px 60px 0px 0px;
+}
+
+.header .option_accept .form-input {
+  -webkit-appearance: none;
+  position: relative;
+}
+
+.header .option_accept .form-input::before, .header .option_accept .form-input::after {
+  content: "";
+  position: absolute;
+  height: 15px;
+  width: 30px;
+  top: -6px;
+  left: -40px;
+  border-radius: 8px;
+  background: #890eec;
+}
+
+.header .option_accept .form-input::after {
+  width: 15px;
+  background: #0f086d;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-box-shadow: 0px 0px 4px #0f086d;
+          box-shadow: 0px 0px 4px #0f086d;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+  color: pointer;
+}
+
+.header .option_accept .form-input:checked::after {
+  -webkit-transform: translateX(15px) scale(1.2);
+          transform: translateX(15px) scale(1.2);
+}
+
+.header .msg-alert {
+  display: none;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header .control_tabs {
+  width: 80%;
+  margin: 0px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+
+.header .control_tabs .tab-item {
+  width: 33%;
+  height: 46px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .control_tabs .tab-item span {
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.header .control_tabs #indicator {
+  position: absolute;
+  background: #6e0a6e;
+  width: 0px;
+  height: 3px;
+  border-radius: 2px;
+  left: 0px;
+  bottom: 0px;
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+
+.resume {
+  position: relative;
+}
+
+.resume .col {
+  width: 100%;
+  min-height: 200px;
+  background: #fff;
+  margin-top: 12px;
+  border-radius: 8px;
+  padding: 12px 12px 20px 20px;
+}
+
+.resume .col .header_section {
+  height: 80px;
+}
+
+.resume .col .header_section span {
+  display: block;
+}
+
+.resume .col .header_section span:last-child {
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.resume .col .reponse_contain {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.resume .col .reponse_contain .list-group {
+  margin-right: 5px;
+}
+
+/*end resume*/
+.animation {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  padding: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  margin-top: 12px;
+  top: 210px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  z-index: 99;
+}
+
+.animation .inner-animation {
+  width: 200px;
+  min-height: 130px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.animation .inner-animation span {
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  background: #240A3A;
+  -webkit-animation: anim 3s infinite ease-in-out;
+          animation: anim 3s infinite ease-in-out;
+  -webkit-animation-delay: calc(var(--i) * 0.5s);
+          animation-delay: calc(var(--i) * 0.5s);
+}
+
+/*end animation*/
+@-webkit-keyframes anim {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 250px;
+    height: 250px;
+    opacity: 0;
+  }
+}
+@keyframes anim {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 250px;
+    height: 250px;
+    opacity: 0;
+  }
+}
+
+.navigation_Containt {
+  width: 100%;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 12px;
+  background: #fff;
+  border-top: 1px solid #aaa;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.navigation_Containt .reponse-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navigation_Containt .reponse-control .btn-control {
+  width: 48px;
+  height: 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 0.9em;
+  border-radius: 50%;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+
+.navigation_Containt .reponse-control .btn-control:hover {
+  font-size: 1.3em;
+}
+
+.navigation_Containt .reponse-control .btn-control:hover {
+  background: rgba(231, 167, 167, 0.4);
+}
+
+.navigation_Containt .reponse-control .btn-control::-moz-selection {
+  -webkit-appearance: none;
+}
+
+.navigation_Containt .reponse-control .btn-control::selection {
+  -webkit-appearance: none;
+}
+
+.navigation_Containt .reponse-control input {
+  width: 50px;
+  border: none;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.navigation_Containt .control_Group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navigation_Containt .control_Group span {
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  line-height: 48px;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+/*# sourceMappingURL=main.css.map */
